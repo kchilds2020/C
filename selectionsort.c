@@ -3,7 +3,7 @@
 #include "print_array.h"
 
 void selectionSort(int arr[], int n){
-   int i, j, min_idx,totalIterations = 0;
+   int i, j, min_idx,iterations = 0, swaps = 0;
 
    for(i = 0; i < n - 1; i++){
       min_idx = i;
@@ -12,15 +12,15 @@ void selectionSort(int arr[], int n){
          if(arr[j] < arr[min_idx]){
             min_idx = j;
          }
-         totalIterations++;
+         iterations++;
       }
       //print each swap
       printArr(arr,n);
-
+      swaps++;
       swap(&arr[min_idx], &arr[i]);
    }
 
-   printf("\nPerformance: O(n^2)\nTotal Iterations: %d\n",totalIterations);
+   printf("Performance: O(n^2)\nTotal Iterations: %d\nTotal Swaps: %d\n",iterations, swaps);
 }
 
 int main() {
