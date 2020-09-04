@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include "print_array.h"
 
 //performance O(n^2)
 int main(){
@@ -18,16 +19,13 @@ int main(){
 	    count++;
 
 	    //display swap to console
-            for(int x = 0; x < 10; x++){
-               printf("%d, ",array[x]);
-            }
-	    printf("\n");
+            printArr(array,arrayCount);
 	}
 	
     }
   }
 
-  printf("Performance: O(n^2)\nTotal Swaps: %d\n",count);
+  printf("Performance: O(n^2)\nTotal Iterations: %d\n",count);
 
 
   return 0;

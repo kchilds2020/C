@@ -1,14 +1,9 @@
 #include<stdio.h>
-
-void swap(int *xp, int *yp){
-   int temp = *xp;
-   *xp = *yp;
-   *yp = temp;
-}
-
+#include "utilities.h"
+#include "print_array.h"
 
 void selectionSort(int arr[], int n){
-   int i, j, min_idx;
+   int i, j, min_idx,totalIterations = 0;
 
    for(i = 0; i < n - 1; i++){
       min_idx = i;
@@ -17,14 +12,15 @@ void selectionSort(int arr[], int n){
          if(arr[j] < arr[min_idx]){
             min_idx = j;
          }
+         totalIterations++;
       }
       //print each swap
-      for(int x = 0; x < n; x++){
-         printf("%d, ", arr[x]);
-      }
-      printf("\n");
+      printArr(arr,n);
+
       swap(&arr[min_idx], &arr[i]);
    }
+
+   printf("\nPerformance: O(n^2)\nTotal Iterations: %d\n",totalIterations);
 }
 
 int main() {
