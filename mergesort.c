@@ -48,8 +48,7 @@ void merge(int arr[], int l, int m, int r){
 void mergeSort(int arr[],int l, int r){
    if(l < r){
       int m = l + (r - l) / 2;
-      printf("Array: ");
-      printArr(arr, l+r);
+      int len = r + 1 - l;
       mergeSort(arr, l, m);
       mergeSort(arr, m+1, r);
       
@@ -61,9 +60,9 @@ void mergeSort(int arr[],int l, int r){
 int main(){
    int arr[] = {12, 11, 13, 5, 6, 7};
    int arr_size = sizeof(arr) / sizeof(arr[0]);
-   
    printArr(arr, arr_size);
    mergeSort(arr, 0, arr_size - 1);   
    printArr(arr, arr_size);
+   printf("\nPerformance: O(nlog(n))\n");
    return 0;
 }
